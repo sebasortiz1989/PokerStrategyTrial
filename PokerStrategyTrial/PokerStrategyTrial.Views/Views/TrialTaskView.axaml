@@ -2,7 +2,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:glassMorphism="clr-namespace:CherylUI.Controls.GlassMorphism;assembly=CherylUI"
              xmlns:viewModels1="clr-namespace:PokerStrategyTrial.ViewModels.ViewModels;assembly=PokerStrategyTrial.ViewModels"
              mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="800"
              x:DataType="viewModels1:TrialTaskViewModel"
@@ -10,27 +9,64 @@
 
     <Viewbox>
         <Grid Width="1280" Height="800" ColumnDefinitions="900, 380">
-            <glassMorphism:GlassCard Grid.Column="0" Margin="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Border Margin="40" Grid.Column="0" Background="White" CornerRadius="20">
                 <StackPanel>
                     <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
                         FontSize="30"
-                        Text="Table" />  
-                </StackPanel>
-            </glassMorphism:GlassCard>
+                        Foreground="Black"
+                        Text="Table" />
+                    
+                    <Button Padding="0" Background="LightGray" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button.Styles>
+                            <Style Selector="Button">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderBrush" Value="Black" />
+                            </Style>
+                            <Style Selector="Button:pointerover /template/ ContentPresenter">
+                                <Setter Property="Background" Value="DarkGray" />
+                                <Setter Property="BorderBrush" Value="Black" />
+                            </Style>
+                            <Style Selector="Button:pressed /template/ ContentPresenter">
+                                <Setter Property="Background" Value="DarkOrange" />
+                                <Setter Property="BorderBrush" Value="Black" />
+                            </Style>
+                        </Button.Styles>
+                        
+                        <Button.Content>
+                            <Grid>
+                                <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <StackPanel Width="100" Height="100" Orientation="Horizontal">
+                                        <Border VerticalAlignment="Bottom" Background="Aqua" Width="20" Height="40"/>
+                                        <Border VerticalAlignment="Bottom" Background="Red" Width="20" Height="60"/>
+                                        <Border VerticalAlignment="Bottom" Background="Yellow" Width="20" Height="30"/>
+                                        <Border VerticalAlignment="Bottom" Background="Blue" Width="20" Height="100"/>
+                                    </StackPanel>
+                                </Viewbox>
+                                <TextBlock FontSize="40" Text="AA" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
 
+                        </Button.Content>
+    
+                    </Button>
+                </StackPanel>
+            </Border>
+            
             <StackPanel Margin="40" Grid.Column="1">
-                <Button IsEnabled="True" Margin="0, 0, 0, 40" Command="{Binding CommandReloadColors}">
+                <Button HorizontalAlignment="Center" Margin="0, 0, 0, 40" Command="{Binding CommandReloadColors}">
                     <TextBlock FontSize="30" Text="Clear Info" />
                 </Button>
 
-                <glassMorphism:GlassCard Width="380" HorizontalAlignment="Center" VerticalAlignment="Center" Height="450">
+                <Border CornerRadius="20" Background="LightGray" HorizontalAlignment="Stretch" Height="400">
                     <StackPanel>
                         <TextBlock
+                            HorizontalAlignment="Center"
                             FontSize="30"
                             Text="{Binding TestOutput}"
                             TextWrapping="Wrap" />  
                     </StackPanel>
-                </glassMorphism:GlassCard>
+                </Border>
             </StackPanel>
         </Grid>
     </Viewbox>

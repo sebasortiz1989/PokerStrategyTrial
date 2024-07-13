@@ -5,7 +5,6 @@
 
              <Application.Styles>
                  <FluentTheme />
-                 <StyleInclude Source="avares://CherylUI/Index.axaml" />
                  <StyleInclude Source="/Components/ButtonLink.axaml" />
              </Application.Styles>
 </Application>
