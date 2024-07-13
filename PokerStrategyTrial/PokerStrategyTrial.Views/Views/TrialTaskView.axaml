@@ -3,65 +3,103 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels1="clr-namespace:PokerStrategyTrial.ViewModels.ViewModels;assembly=PokerStrategyTrial.ViewModels"
+             xmlns:converters="clr-namespace:PokerStrategyTrial.Views.Converters"
+             xmlns:componentModels="clr-namespace:PokerStrategyTrial.ViewModels.ComponentModels;assembly=PokerStrategyTrial.ViewModels"
              mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="800"
              x:DataType="viewModels1:TrialTaskViewModel"
              x:Class="PokerStrategyTrial.Views.Views.TrialTaskView">
 
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converters:ConverterWeightStrategy x:Key="ConverterWeightStrategy" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <Viewbox>
         <Grid Width="1280" Height="800" ColumnDefinitions="900, 380">
-            <Border Margin="40" Grid.Column="0" Background="White" CornerRadius="20">
-                <StackPanel>
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        FontSize="30"
-                        Foreground="Black"
-                        Text="Table" />
-                    
-                    <Button Padding="0" Background="LightGray" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Styles>
-                            <Style Selector="Button">
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="BorderBrush" Value="Black" />
-                            </Style>
-                            <Style Selector="Button:pointerover /template/ ContentPresenter">
-                                <Setter Property="Background" Value="DarkGray" />
-                                <Setter Property="BorderBrush" Value="Black" />
-                            </Style>
-                            <Style Selector="Button:pressed /template/ ContentPresenter">
-                                <Setter Property="Background" Value="DarkOrange" />
-                                <Setter Property="BorderBrush" Value="Black" />
-                            </Style>
-                        </Button.Styles>
-                        
-                        <Button.Content>
-                            <Grid>
-                                <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <StackPanel Width="100" Height="100" Orientation="Horizontal">
-                                        <Border VerticalAlignment="Bottom" Background="Aqua" Width="20" Height="40"/>
-                                        <Border VerticalAlignment="Bottom" Background="Red" Width="20" Height="60"/>
-                                        <Border VerticalAlignment="Bottom" Background="Yellow" Width="20" Height="30"/>
-                                        <Border VerticalAlignment="Bottom" Background="Blue" Width="20" Height="100"/>
-                                    </StackPanel>
-                                </Viewbox>
-                                <TextBlock FontSize="40" Text="AA" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Grid>
+            <Border Width="715" Height="715" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Background="White" CornerRadius="20">
+                <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ItemsControl HorizontalAlignment="Center" VerticalAlignment="Center" Width="715" Height="715" ItemsSource="{Binding HandStrategies}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Background="Transparent" Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+               
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button x:Name="StrategyButton" Padding="0" Background="#FF8B8B8B" Width="55" Height="55" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Button.Styles>
+                                        <Style Selector="Button">
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="BorderBrush" Value="Black" />
+                                        </Style>
+                                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                                            <Setter Property="Background" Value="DarkGray" />
+                                            <Setter Property="BorderBrush" Value="Black" />
+                                        </Style>
+                                        <Style Selector="Button:pressed /template/ ContentPresenter">
+                                            <Setter Property="Background" Value="DarkOrange" />
+                                            <Setter Property="BorderBrush" Value="Black" />
+                                        </Style>
+                                    </Button.Styles>
 
-                        </Button.Content>
-    
-                    </Button>
-                </StackPanel>
+                                    <Button.Content>
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding .Strategy}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel Orientation="Horizontal" />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <!-- <Border -->
+                                                        <!--     VerticalAlignment="Bottom" -->
+                                                        <!--     Background="#FFCA876A" -->
+                                                        <!--     Width="20" -->
+                                                        <!--     Height="{Binding $parent[Button].((componentModels:HandStrategyModel)DataContext).Weight, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/> -->
+                                                        
+                                                        <Border
+                                                            Background="#FFCA876A"
+                                                            Width="50"
+                                                            Height="50"/>
+                                                            
+                                                        <!-- {Binding ComandoPerspectiva, RelativeSource={RelativeSource AncestorType=moduloGuia:ApresentacaoNavegacaoGuiaMapa3D}} -->
+                                                        <!-- , #StrategyButton.((componentModels:HandStrategyModel)DataContext).Weight, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=80}"/> -->
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                            <TextBlock FontSize="20" Text="{Binding Hand}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Grid>
+
+                                    </Button.Content>
+                
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+                </Viewbox>
             </Border>
-            
+          
+            <!-- <Border VerticalAlignment="Bottom" Background="#FFCA876A" Width="20" Height="40"/> -->
+            <!-- <Border VerticalAlignment="Bottom" Background="#FFAB725A" Width="20" Height="60"/> -->
+            <!-- <Border VerticalAlignment="Bottom" Background="#FF825744" Width="20" Height="30"/> -->
+            <!-- <Border VerticalAlignment="Bottom" Background="#FF7D4B35" Width="20" Height="100"/> -->
+            <!-- <Border VerticalAlignment="Bottom" Background="#FF5D3625" Width="20" Height="100"/> -->
+
             <StackPanel Margin="40" Grid.Column="1">
                 <Button HorizontalAlignment="Center" Margin="0, 0, 0, 40" Command="{Binding CommandReloadColors}">
                     <TextBlock FontSize="30" Text="Clear Info" />
                 </Button>
 
-                <Border CornerRadius="20" Background="LightGray" HorizontalAlignment="Stretch" Height="400">
+                <Border CornerRadius="20" Background="White" HorizontalAlignment="Stretch" Height="400">
                     <StackPanel>
                         <TextBlock
                             HorizontalAlignment="Center"
+                            Foreground="Black"
                             FontSize="30"
                             Text="{Binding TestOutput}"
                             TextWrapping="Wrap" />  

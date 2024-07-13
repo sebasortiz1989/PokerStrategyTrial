@@ -9,7 +9,7 @@ public class HandStrategyModel
     {
         Hand = handName;
         Weight = weight;
-        Strategy = strategy;
+        Strategy = new ObservableCollection<float>(strategy);
         StrategyColors = strategyColors;
     }
     
@@ -17,7 +17,7 @@ public class HandStrategyModel
 
     public float Weight { get; private set; }
 
-    public float[] Strategy { get; private set; }
+    public ObservableCollection<float> Strategy { get; private set; }
 
     public Color[] StrategyColors { get; private set; }
 }

@@ -9,7 +9,7 @@ namespace PokerStrategyTrial.ViewModels.ViewModels
     public class TrialTaskViewModel : ViewModelBase
     {
         private readonly string[] _cards = ["A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"];
-        private readonly Color[] _colors = [Colors.Aqua, Colors.Red, Colors.Green, Colors.Chocolate, Colors.Cornsilk];
+        private readonly Color[] _colors = [Color.Parse("#FFCA876A"), Color.Parse("#FFAB725A"), Color.Parse("#FF825744"), Color.Parse("#FF7D4B35"), Color.Parse("#FF5D3625")];
 
         public TrialTaskViewModel()
         {
