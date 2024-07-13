@@ -19,8 +19,8 @@
             </glassMorphism:GlassCard>
 
             <StackPanel Margin="40" Grid.Column="1">
-                <Button IsEnabled="True" Margin="0, 0, 0, 40" Command="{Binding ExampleCommand}">
-                    <TextBlock FontSize="30" Text="Reload Colors" />
+                <Button IsEnabled="True" Margin="0, 0, 0, 40" Command="{Binding CommandReloadColors}">
+                    <TextBlock FontSize="30" Text="Clear Info" />
                 </Button>
 
                 <glassMorphism:GlassCard Width="380" HorizontalAlignment="Center" VerticalAlignment="Center" Height="450">
