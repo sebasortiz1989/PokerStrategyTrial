@@ -1,4 +1,5 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using MicrophoneApp.ViewModel.Container;
 using PokerStrategyTrial.ViewModels.ViewModels;
@@ -16,10 +17,5 @@ public partial class TrialTaskView : UserControl
             _viewModel = testViewModel;
 
         InitializeComponent();
-    }
-
-    private void Button_OnClick(object? sender, RoutedEventArgs e)
-    {
-        _viewModel?.FuncaoTest();
     }
 }

@@ -1,7 +1,8 @@
-﻿using ReactiveUI;
+﻿using PropertyChanged;
 
 namespace PokerStrategyTrial.ViewModels.ViewModels;
 
-public class ViewModelBase : ReactiveObject
+[AddINotifyPropertyChangedInterface]
+public class ViewModelBase
 {
 }
