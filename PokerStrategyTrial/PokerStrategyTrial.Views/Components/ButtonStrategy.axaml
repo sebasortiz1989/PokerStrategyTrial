@@ -9,6 +9,8 @@
     <Styles.Resources>
         <ResourceDictionary>
             <converters:ConverterWeightStrategy x:Key="ConverterWeightStrategy" />
+            <converters:ConverterHeightStrategy x:Key="ConverterHeightStrategy" />
+            <converters:ConverterGetStrategyWidth x:Key="ConverterGetStrategyWidth" />
         </ResourceDictionary>
     </Styles.Resources>
 
@@ -34,32 +36,34 @@
 
                     <Button.Content>
                         <Grid>
-                            <ItemsControl ItemsSource="{TemplateBinding Strategy}">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Border
+                                    VerticalAlignment="Bottom"
+                                    Background="#FFCA876A"
+                                    Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-0'}"
+                                    Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
+                                <Border
+                                    VerticalAlignment="Bottom"
+                                    Background="Blue"
+                                    Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-1'}"
+                                    Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
+                                <Border
+                                    VerticalAlignment="Bottom"
+                                    Background="Red"
+                                    Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-2'}"
+                                    Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
+                                <Border
+                                    VerticalAlignment="Bottom"
+                                    Background="Yellow"
+                                    Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-3'}"
+                                    Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
+                                <Border
+                                    VerticalAlignment="Bottom"
+                                    Background="Green"
+                                    Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-4'}"
+                                    Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
+                            </StackPanel>
 
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border
-                                            VerticalAlignment="Bottom"
-                                            Background="#FFCA876A"
-                                            Width="20"
-                                            Height="25"/>
-                                        
-                                        <!-- Height="{TemplateBinding Weight, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=80}" -->
-                                        <!-- <Border -->
-                                        <!--     Background="#FFCA876A" -->
-                                        <!--     Width="50" -->
-                                        <!--     Height="50"/> -->
-                                            
-                                        <!-- {Binding ComandoPerspectiva, RelativeSource={RelativeSource AncestorType=moduloGuia:ApresentacaoNavegacaoGuiaMapa3D}} -->
-                                        <!-- , #StrategyButton.((componentModels:HandStrategyModel)DataContext).Weight, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=80}"/> -->
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
                             <TextBlock FontSize="20" Text="{TemplateBinding HandName}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
 
@@ -70,3 +74,9 @@
         </Setter>
     </Style>
 </Styles>
+
+<!-- <Border -->
+<!--     VerticalAlignment="Bottom" -->
+<!--     Background="#FFCA876A" -->
+<!--     Width="20" -->
+<!--     Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/> -->

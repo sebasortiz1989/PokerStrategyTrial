@@ -36,8 +36,8 @@ namespace PokerStrategyTrial.ViewModels.ViewModels
             {
                 for (int j = 0; j < _cards.Length; j++)
                 {
-                    int numberOfStrategies = rnd.Next(1, _colors.Length - 1);
-                    Collection<float> strategiesFrequency = [];
+                    int numberOfStrategies = rnd.Next(1, _colors.Length + 1);
+                    Collection<double> strategiesFrequency = [];
                     float sumOfFrequencies = 0;
                     for (int z = 0; z < numberOfStrategies; z++)
                     {
@@ -54,7 +54,7 @@ namespace PokerStrategyTrial.ViewModels.ViewModels
 
                     HandStrategyModel strategy = new HandStrategyModel(
                         hand: $"{_cards[i]}{_cards[j]}{(i == j ? string.Empty : i > j ? "o" : "s")}",
-                        rnd.NextSingle() * 55,
+                        rnd.NextSingle(),
                         strategiesFrequency.ToArray(),
                         _colors[new Range(0, numberOfStrategies)]);
 

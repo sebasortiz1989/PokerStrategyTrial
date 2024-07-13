@@ -21,7 +21,7 @@
                
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <components:ButtonStrategy HandName="{Binding Hand}" Strategy="{Binding Strategy}" Weight="{Binding Weight}"/>
+                                <components:ButtonStrategy HandName="{Binding Hand}" Strategy="{Binding Strategy}" WeightValue="{Binding Weight}"/>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
 
