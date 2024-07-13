@@ -1,0 +1,38 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:glassMorphism="clr-namespace:CherylUI.Controls.GlassMorphism;assembly=CherylUI"
+             xmlns:viewModels1="clr-namespace:PokerStrategyTrial.ViewModels.ViewModels;assembly=PokerStrategyTrial.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="800"
+             x:DataType="viewModels1:TrialTaskViewModel"
+             x:Class="PokerStrategyTrial.Views.Views.TrialTaskView">
+
+    <Viewbox>
+        <Grid Width="1280" Height="800" ColumnDefinitions="900, 380">
+            <glassMorphism:GlassCard Grid.Column="0" Margin="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <StackPanel>
+                    <TextBlock
+                        FontSize="30"
+                        Text="Table" />  
+                </StackPanel>
+            </glassMorphism:GlassCard>
+
+            <StackPanel Margin="40" Grid.Column="1">
+                <Button Margin="0, 0, 0, 40" Click="Button_OnClick">
+                    <TextBlock FontSize="30" Text="Reload Colors" />
+                </Button>
+                
+                <glassMorphism:GlassCard Width="380" HorizontalAlignment="Center" VerticalAlignment="Center" Height="450">
+                    <StackPanel>
+                        <TextBlock
+                            FontSize="30"
+                            Text="Clicked button Information"
+                            TextWrapping="Wrap" />  
+                    </StackPanel>
+                </glassMorphism:GlassCard>
+            </StackPanel>
+        </Grid>
+    </Viewbox>
+    
+</UserControl>

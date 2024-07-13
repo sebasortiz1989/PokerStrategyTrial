@@ -3,11 +3,12 @@ using Android.Content.PM;
 using Avalonia;
 using Avalonia.Android;
 using Avalonia.ReactiveUI;
+using PokerStrategyTrial.Views;
 
 namespace PokerStrategyTrial.Android;
 
 [Activity(
-    Label = "PokerStrategyTrial.Android",
+    Label = "PokerStrategyTrial.Views.Android",
     Theme = "@style/MyTheme.NoActionBar",
     Icon = "@drawable/icon",
     MainLauncher = true,

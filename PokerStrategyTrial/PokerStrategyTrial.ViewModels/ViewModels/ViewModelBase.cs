@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace PokerStrategyTrial.ViewModels;
+namespace PokerStrategyTrial.ViewModels.ViewModels;
 
 public class ViewModelBase : ReactiveObject
 {

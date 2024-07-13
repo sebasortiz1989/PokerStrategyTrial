@@ -5,6 +5,7 @@ using Avalonia.Controls;
 using Avalonia.iOS;
 using Avalonia.Media;
 using Avalonia.ReactiveUI;
+using PokerStrategyTrial.Views;
 
 namespace PokerStrategyTrial.iOS;
 

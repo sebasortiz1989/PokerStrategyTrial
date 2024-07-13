@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Browser;
 using Avalonia.ReactiveUI;
-using PokerStrategyTrial;
+using PokerStrategyTrial.Views;
 
 [assembly: SupportedOSPlatform("browser")]
 

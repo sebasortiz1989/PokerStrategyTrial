@@ -23,6 +23,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\PokerStrategyTrial\PokerStrategyTrial.csproj"/>
+        <ProjectReference Include="..\PokerStrategyTrial.Views\PokerStrategyTrial.Views.csproj" />
     </ItemGroup>
 </Project>

@@ -1,10 +1,10 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using PokerStrategyTrial.ViewModels;
-using PokerStrategyTrial.Views;
+using PokerStrategyTrial.ViewModels.ViewModels;
+using PokerStrategyTrial.Views.Views;
 
-namespace PokerStrategyTrial;
+namespace PokerStrategyTrial.Views;
 
 public partial class App : Application
 {

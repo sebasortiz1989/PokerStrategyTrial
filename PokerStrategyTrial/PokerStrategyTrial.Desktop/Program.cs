@@ -1,6 +1,7 @@
 ﻿using System;
 using Avalonia;
 using Avalonia.ReactiveUI;
+using PokerStrategyTrial.Views;
 
 namespace PokerStrategyTrial.Desktop;
 

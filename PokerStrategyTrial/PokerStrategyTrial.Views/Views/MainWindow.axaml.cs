@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace PokerStrategyTrial.Views;
+namespace PokerStrategyTrial.Views.Views;
 
 public partial class MainWindow : Window
 {
