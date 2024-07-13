@@ -5,7 +5,7 @@ namespace PokerStrategyTrial.ViewModels.ComponentModels;
 
 public class HandStrategyModel
 {
-    public HandStrategyModel(string hand, float weight, double[] strategy, Color[] strategyColors)
+    public HandStrategyModel(string hand, float weight, float[] strategy, Color[] strategyColors)
     {
         Hand = hand;
         Weight = weight;
@@ -17,7 +17,7 @@ public class HandStrategyModel
 
     public float Weight { get; private set; }
 
-    public double[] Strategy { get; private set; }
+    public float[] Strategy { get; private set; }
 
     public Color[] StrategyColors { get; private set; }
 }

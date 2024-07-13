@@ -10,6 +10,7 @@
         <ResourceDictionary>
             <converters:ConverterWeightStrategy x:Key="ConverterWeightStrategy" />
             <converters:ConverterHeightStrategy x:Key="ConverterHeightStrategy" />
+            <converters:ConverterColorToIBrush x:Key="ConverterColorToIBrush" />
             <converters:ConverterGetStrategyWidth x:Key="ConverterGetStrategyWidth" />
         </ResourceDictionary>
     </Styles.Resources>
@@ -29,42 +30,45 @@
                             <Setter Property="BorderBrush" Value="Black" />
                         </Style>
                         <Style Selector="Button:pressed /template/ ContentPresenter">
-                            <Setter Property="Background" Value="DarkOrange" />
+                            <Setter Property="Background" Value="#FFEAE3E1" />
                             <Setter Property="BorderBrush" Value="Black" />
                         </Style>
                     </Button.Styles>
 
                     <Button.Content>
                         <Grid>
-                            <StackPanel Orientation="Horizontal">
-                                <Border
-                                    VerticalAlignment="Bottom"
-                                    Background="#FFCA876A"
-                                    Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-0'}"
-                                    Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
-                                <Border
-                                    VerticalAlignment="Bottom"
-                                    Background="Blue"
-                                    Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-1'}"
-                                    Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
-                                <Border
-                                    VerticalAlignment="Bottom"
-                                    Background="Red"
-                                    Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-2'}"
-                                    Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
-                                <Border
-                                    VerticalAlignment="Bottom"
-                                    Background="Yellow"
-                                    Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-3'}"
-                                    Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
-                                <Border
-                                    VerticalAlignment="Bottom"
-                                    Background="Green"
-                                    Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-4'}"
-                                    Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
-                            </StackPanel>
+                            <Viewbox VerticalAlignment="Bottom">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                    <Border
+                                        VerticalAlignment="Bottom"
+                                        Background="{Binding StrategyColors, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterColorToIBrush}, ConverterParameter=0}"
+                                        Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-0'}"
+                                        Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
+                                    <Border
+                                        VerticalAlignment="Bottom"
+                                        Background="{Binding StrategyColors, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterColorToIBrush}, ConverterParameter=1}"
+                                        Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-1'}"
+                                        Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
+                                    <Border
+                                        VerticalAlignment="Bottom"
+                                        Background="{Binding StrategyColors, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterColorToIBrush}, ConverterParameter=2}"
+                                        Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-2'}"
+                                        Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
+                                    <Border
+                                        VerticalAlignment="Bottom"
+                                        Background="{Binding StrategyColors, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterColorToIBrush}, ConverterParameter=3}"
+                                        Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-3'}"
+                                        Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
+                                    <Border
+                                        VerticalAlignment="Bottom"
+                                        Background="{Binding StrategyColors, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterColorToIBrush}, ConverterParameter=4}"
+                                        Width="{Binding Strategy, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterHeightStrategy}, ConverterParameter='55-4'}"
+                                        Height="{Binding WeightValue, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/>
+                                </StackPanel>
+                            </Viewbox>
 
-                            <TextBlock FontSize="20" Text="{TemplateBinding HandName}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" Text="{TemplateBinding HandName}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" Text="{TemplateBinding HandName}" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
 
                     </Button.Content>

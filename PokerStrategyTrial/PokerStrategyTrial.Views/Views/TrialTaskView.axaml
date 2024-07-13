@@ -10,7 +10,7 @@
 
     <Viewbox>
         <Grid Width="1280" Height="800" ColumnDefinitions="900, 380">
-            <Border Width="715" Height="715" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Background="White" CornerRadius="20">
+            <Border Width="715" Height="715" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Background="Black" CornerRadius="20">
                 <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <ItemsControl HorizontalAlignment="Center" VerticalAlignment="Center" Width="715" Height="715" ItemsSource="{Binding HandStrategies}">
                         <ItemsControl.ItemsPanel>
@@ -21,26 +21,39 @@
                
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <components:ButtonStrategy HandName="{Binding Hand}" Strategy="{Binding Strategy}" WeightValue="{Binding Weight}"/>
+                                <components:ButtonStrategy
+                                    HandName="{Binding Hand}"
+                                    StrategyColors="{Binding StrategyColors}"
+                                    Strategy="{Binding Strategy}"
+                                    WeightValue="{Binding Weight}"/>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
 
                     </ItemsControl>
                 </Viewbox>
             </Border>
-          
-            <!-- <Border VerticalAlignment="Bottom" Background="#FFCA876A" Width="20" Height="40"/> -->
-            <!-- <Border VerticalAlignment="Bottom" Background="#FFAB725A" Width="20" Height="60"/> -->
-            <!-- <Border VerticalAlignment="Bottom" Background="#FF825744" Width="20" Height="30"/> -->
-            <!-- <Border VerticalAlignment="Bottom" Background="#FF7D4B35" Width="20" Height="100"/> -->
-            <!-- <Border VerticalAlignment="Bottom" Background="#FF5D3625" Width="20" Height="100"/> -->
 
             <StackPanel Margin="40" Grid.Column="1">
-                <Button HorizontalAlignment="Center" Margin="0, 0, 0, 40" Command="{Binding CommandReloadColors}">
-                    <TextBlock FontSize="30" Text="Clear Info" />
+                <Button Width="200" Height="50" Background="#FF8B8B8B" CornerRadius="20" HorizontalAlignment="Center" Margin="0, 0, 0, 40" Command="{Binding CommandReloadColors}">
+                    <Button.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                            <Setter Property="Background" Value="DarkGray" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                        <Style Selector="Button:pressed /template/ ContentPresenter">
+                            <Setter Property="Background" Value="#FFEAE3E1" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                    </Button.Styles>
+                    
+                    <TextBlock FontSize="24" Text="Clear Info" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Button>
 
-                <Border CornerRadius="20" Background="White" HorizontalAlignment="Stretch" Height="400">
+                <Border CornerRadius="20" Background="#FF8B8B8B" HorizontalAlignment="Stretch" Height="400">
                     <StackPanel>
                         <TextBlock
                             HorizontalAlignment="Center"

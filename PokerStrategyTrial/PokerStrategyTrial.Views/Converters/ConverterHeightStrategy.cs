@@ -12,15 +12,12 @@ public class ConverterHeightStrategy : IValueConverter
         if (parameter is not string param)
             return 0;
 
-        string[] heightAndIndex = param.Split('-');
-        if (!double.TryParse(heightAndIndex[0], out var height) || !int.TryParse(heightAndIndex[1], out var index) || value is not double[] values)
+        var heightAndIndex = param.Split('-');
+        if (!float.TryParse(heightAndIndex[0], out var height) ||
+            !int.TryParse(heightAndIndex[1], out var index) ||
+            value is not float[] values)
         {
             return 0;
-        }
-
-        if (values.Length > 3)
-        {
-            var a = 1;
         }
 
         if (values.Length > index)

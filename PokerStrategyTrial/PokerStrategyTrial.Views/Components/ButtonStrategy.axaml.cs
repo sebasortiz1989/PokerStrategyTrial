@@ -6,13 +6,13 @@ namespace PokerStrategyTrial.Views.Components;
 
 public class ButtonStrategy : Button
 {
-    private double[] strategy;
+    private float[] strategy;
     private Color[] strategyColors;
-    private double weightValue;
+    private float weightValue;
     private string handName = "AA";
 
-    public static readonly DirectProperty<ButtonStrategy, double[]> StrategyProperty =
-        AvaloniaProperty.RegisterDirect<ButtonStrategy, double[]>(
+    public static readonly DirectProperty<ButtonStrategy, float[]> StrategyProperty =
+        AvaloniaProperty.RegisterDirect<ButtonStrategy, float[]>(
             nameof(Strategy),
             o => o.Strategy,
             (o, v) => o.Strategy = v);
@@ -23,8 +23,8 @@ public class ButtonStrategy : Button
             o => o.HandName,
             (o, v) => o.HandName = v);
 
-    public static readonly DirectProperty<ButtonStrategy, double> WeightValueProperty =
-        AvaloniaProperty.RegisterDirect<ButtonStrategy, double>(
+    public static readonly DirectProperty<ButtonStrategy, float> WeightValueProperty =
+        AvaloniaProperty.RegisterDirect<ButtonStrategy, float>(
             nameof(WeightValue),
             o => o.WeightValue,
             (o, v) => o.WeightValue = v);    
@@ -40,7 +40,7 @@ public class ButtonStrategy : Button
         
     }
 
-    public double[] Strategy
+    public float[] Strategy
     {
         get => strategy;
         set => SetAndRaise(StrategyProperty, ref strategy, value);
@@ -52,7 +52,7 @@ public class ButtonStrategy : Button
         set => SetAndRaise(HandNameProperty, ref handName, value);
     }
 
-    public double WeightValue
+    public float WeightValue
     {
         get => weightValue;
         set => SetAndRaise(WeightValueProperty, ref weightValue, value);

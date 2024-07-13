@@ -37,7 +37,7 @@ namespace PokerStrategyTrial.ViewModels.ViewModels
                 for (int j = 0; j < _cards.Length; j++)
                 {
                     int numberOfStrategies = rnd.Next(1, _colors.Length + 1);
-                    Collection<double> strategiesFrequency = [];
+                    Collection<float> strategiesFrequency = [];
                     float sumOfFrequencies = 0;
                     for (int z = 0; z < numberOfStrategies; z++)
                     {
@@ -52,11 +52,25 @@ namespace PokerStrategyTrial.ViewModels.ViewModels
                         sumOfFrequencies += newFrequency;
                     }
 
+                    string handName;
+                    if (i == j)
+                    {
+                        handName = $"{_cards[i]}{_cards[j]}";
+                    }
+                    else if (i > j)
+                    {
+                        handName = $"{_cards[j]}{_cards[i]}o";
+                    }
+                    else
+                    {
+                        handName = $"{_cards[i]}{_cards[j]}s";
+                    }
+
                     HandStrategyModel strategy = new HandStrategyModel(
-                        hand: $"{_cards[i]}{_cards[j]}{(i == j ? string.Empty : i > j ? "o" : "s")}",
-                        rnd.NextSingle(),
-                        strategiesFrequency.ToArray(),
-                        _colors[new Range(0, numberOfStrategies)]);
+                        hand: handName,
+                        weight: rnd.NextSingle(),
+                        strategy: strategiesFrequency.Order().ToArray(),
+                        strategyColors: _colors[new Range(0, numberOfStrategies)]);
 
                     HandStrategies.Add(strategy);
                 }
