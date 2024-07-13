@@ -1,0 +1,72 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:PokerStrategyTrial.Views.Components"
+        xmlns:converters="clr-namespace:PokerStrategyTrial.Views.Converters">
+    <Design.PreviewWith>
+        <controls:ButtonStrategy />
+    </Design.PreviewWith>
+
+    <Styles.Resources>
+        <ResourceDictionary>
+            <converters:ConverterWeightStrategy x:Key="ConverterWeightStrategy" />
+        </ResourceDictionary>
+    </Styles.Resources>
+
+    <Style Selector="controls|ButtonStrategy">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Button x:Name="StrategyButton" Padding="0" Background="#FF8B8B8B" Width="55" Height="55" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                            <Setter Property="Background" Value="DarkGray" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                        <Style Selector="Button:pressed /template/ ContentPresenter">
+                            <Setter Property="Background" Value="DarkOrange" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                    </Button.Styles>
+
+                    <Button.Content>
+                        <Grid>
+                            <ItemsControl ItemsSource="{TemplateBinding Strategy}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border
+                                            VerticalAlignment="Bottom"
+                                            Background="#FFCA876A"
+                                            Width="20"
+                                            Height="25"/>
+                                        
+                                        <!-- Height="{TemplateBinding Weight, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=80}" -->
+                                        <!-- <Border -->
+                                        <!--     Background="#FFCA876A" -->
+                                        <!--     Width="50" -->
+                                        <!--     Height="50"/> -->
+                                            
+                                        <!-- {Binding ComandoPerspectiva, RelativeSource={RelativeSource AncestorType=moduloGuia:ApresentacaoNavegacaoGuiaMapa3D}} -->
+                                        <!-- , #StrategyButton.((componentModels:HandStrategyModel)DataContext).Weight, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=80}"/> -->
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <TextBlock FontSize="20" Text="{TemplateBinding HandName}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+
+                    </Button.Content>
+
+                </Button>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

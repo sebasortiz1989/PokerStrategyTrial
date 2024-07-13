@@ -53,8 +53,8 @@ namespace PokerStrategyTrial.ViewModels.ViewModels
                     }
 
                     HandStrategyModel strategy = new HandStrategyModel(
-                        handName: $"{_cards[i]}{_cards[j]}{(i == j ? string.Empty : i > j ? "o" : "s")}",
-                        rnd.NextSingle(),
+                        hand: $"{_cards[i]}{_cards[j]}{(i == j ? string.Empty : i > j ? "o" : "s")}",
+                        rnd.NextSingle() * 55,
                         strategiesFrequency.ToArray(),
                         _colors[new Range(0, numberOfStrategies)]);
 

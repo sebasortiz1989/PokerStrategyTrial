@@ -5,11 +5,11 @@ namespace PokerStrategyTrial.ViewModels.ComponentModels;
 
 public class HandStrategyModel
 {
-    public HandStrategyModel(string handName, float weight, float[] strategy, Color[] strategyColors)
+    public HandStrategyModel(string hand, float weight, float[] strategy, Color[] strategyColors)
     {
-        Hand = handName;
+        Hand = hand;
         Weight = weight;
-        Strategy = new ObservableCollection<float>(strategy);
+        Strategy = strategy;
         StrategyColors = strategyColors;
     }
     
@@ -17,7 +17,7 @@ public class HandStrategyModel
 
     public float Weight { get; private set; }
 
-    public ObservableCollection<float> Strategy { get; private set; }
+    public float[] Strategy { get; private set; }
 
     public Color[] StrategyColors { get; private set; }
 }

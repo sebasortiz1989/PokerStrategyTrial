@@ -3,17 +3,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels1="clr-namespace:PokerStrategyTrial.ViewModels.ViewModels;assembly=PokerStrategyTrial.ViewModels"
-             xmlns:converters="clr-namespace:PokerStrategyTrial.Views.Converters"
-             xmlns:componentModels="clr-namespace:PokerStrategyTrial.ViewModels.ComponentModels;assembly=PokerStrategyTrial.ViewModels"
+             xmlns:components="clr-namespace:PokerStrategyTrial.Views.Components"
              mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="800"
              x:DataType="viewModels1:TrialTaskViewModel"
              x:Class="PokerStrategyTrial.Views.Views.TrialTaskView">
-
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <converters:ConverterWeightStrategy x:Key="ConverterWeightStrategy" />
-        </ResourceDictionary>
-    </UserControl.Resources>
 
     <Viewbox>
         <Grid Width="1280" Height="800" ColumnDefinitions="900, 380">
@@ -28,55 +21,7 @@
                
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button x:Name="StrategyButton" Padding="0" Background="#FF8B8B8B" Width="55" Height="55" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <Button.Styles>
-                                        <Style Selector="Button">
-                                            <Setter Property="Background" Value="Transparent" />
-                                            <Setter Property="BorderBrush" Value="Black" />
-                                        </Style>
-                                        <Style Selector="Button:pointerover /template/ ContentPresenter">
-                                            <Setter Property="Background" Value="DarkGray" />
-                                            <Setter Property="BorderBrush" Value="Black" />
-                                        </Style>
-                                        <Style Selector="Button:pressed /template/ ContentPresenter">
-                                            <Setter Property="Background" Value="DarkOrange" />
-                                            <Setter Property="BorderBrush" Value="Black" />
-                                        </Style>
-                                    </Button.Styles>
-
-                                    <Button.Content>
-                                        <Grid>
-                                            <ItemsControl ItemsSource="{Binding .Strategy}">
-                                                <ItemsControl.ItemsPanel>
-                                                    <ItemsPanelTemplate>
-                                                        <StackPanel Orientation="Horizontal" />
-                                                    </ItemsPanelTemplate>
-                                                </ItemsControl.ItemsPanel>
-
-                                                <ItemsControl.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <!-- <Border -->
-                                                        <!--     VerticalAlignment="Bottom" -->
-                                                        <!--     Background="#FFCA876A" -->
-                                                        <!--     Width="20" -->
-                                                        <!--     Height="{Binding $parent[Button].((componentModels:HandStrategyModel)DataContext).Weight, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=55}"/> -->
-                                                        
-                                                        <Border
-                                                            Background="#FFCA876A"
-                                                            Width="50"
-                                                            Height="50"/>
-                                                            
-                                                        <!-- {Binding ComandoPerspectiva, RelativeSource={RelativeSource AncestorType=moduloGuia:ApresentacaoNavegacaoGuiaMapa3D}} -->
-                                                        <!-- , #StrategyButton.((componentModels:HandStrategyModel)DataContext).Weight, Converter={StaticResource ConverterWeightStrategy}, ConverterParameter=80}"/> -->
-                                                    </DataTemplate>
-                                                </ItemsControl.ItemTemplate>
-                                            </ItemsControl>
-                                            <TextBlock FontSize="20" Text="{Binding Hand}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Grid>
-
-                                    </Button.Content>
-                
-                                </Button>
+                                <components:ButtonStrategy HandName="{Binding Hand}" Strategy="{Binding Strategy}" Weight="{Binding Weight}"/>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
 
