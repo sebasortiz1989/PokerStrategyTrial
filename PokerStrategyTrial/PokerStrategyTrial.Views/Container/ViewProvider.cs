@@ -33,6 +33,7 @@ public sealed class ViewProvider
     private void RegisterViews()
     {
         services.AddSingleton<MainView, MainView>();
-        services.AddSingleton<TrialTaskView, TrialTaskView>();
+        services.AddSingleton<StrategyView, StrategyView>();
+        services.AddSingleton<InitialView, InitialView>();
     }
 }

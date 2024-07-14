@@ -31,6 +31,6 @@ public class ViewModelProvider
     private void RegisterViewModels()
     {
         services.AddSingleton<MainViewModel, MainViewModel>();
-        services.AddSingleton<TrialTaskViewModel, TrialTaskViewModel>();
+        services.AddSingleton<StrategyViewModel, StrategyViewModel>();
     }
 }

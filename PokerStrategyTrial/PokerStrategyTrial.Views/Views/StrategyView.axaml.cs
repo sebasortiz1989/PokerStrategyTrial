@@ -1,4 +1,5 @@
-﻿using Avalonia.Controls;
+﻿using System;
+using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using MicrophoneApp.ViewModel.Container;
@@ -8,18 +9,20 @@ using PokerStrategyTrial.Views.Components;
 
 namespace PokerStrategyTrial.Views.Views;
 
-public partial class TrialTaskView : UserControl
+public partial class StrategyView : UserControl
 {
-    private TrialTaskViewModel? _viewModel;
+    private StrategyViewModel? _viewModel;
 
-    public TrialTaskView()
+    public StrategyView()
     {
-        DataContext = ViewModelProvider.Instance.GetViewModel(typeof(TrialTaskViewModel));
-        if (DataContext is TrialTaskViewModel testViewModel)
+        DataContext = ViewModelProvider.Instance.GetViewModel(typeof(StrategyViewModel));
+        if (DataContext is StrategyViewModel testViewModel)
             _viewModel = testViewModel;
 
         InitializeComponent();
     }
+
+    public event Action<ViewsEnum>? ShowViewAction;
 
     private void ButtonStrategy_OnClick(object? sender, RoutedEventArgs e)
     {
@@ -27,5 +30,10 @@ public partial class TrialTaskView : UserControl
             return;
 
         _viewModel?.SetCardInformation(vm);
+    }
+
+    private void InputElement_OnTapped(object? sender, TappedEventArgs e)
+    {
+        ShowViewAction?.Invoke(ViewsEnum.InitialView);
     }
 }
