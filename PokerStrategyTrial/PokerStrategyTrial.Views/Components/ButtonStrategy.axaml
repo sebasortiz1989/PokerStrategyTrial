@@ -67,8 +67,8 @@
                                 </StackPanel>
                             </Viewbox>
 
-                            <TextBlock FontSize="18" Text="{TemplateBinding HandName}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBlock FontSize="18" Text="{TemplateBinding HandName}" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock IsVisible="{Binding !ShowBoldFont, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}}" FontSize="18" Text="{TemplateBinding HandName}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock IsVisible="{Binding ShowBoldFont, RelativeSource={RelativeSource AncestorType=controls:ButtonStrategy}}" FontSize="18" Text="{TemplateBinding HandName}" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
 
                     </Button.Content>

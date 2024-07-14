@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Reactive;
+using System.Text;
 using Avalonia.Media;
 using PokerStrategyTrial.ViewModels.ComponentModels;
 using ReactiveUI;
@@ -13,19 +14,33 @@ namespace PokerStrategyTrial.ViewModels.ViewModels
 
         public TrialTaskViewModel()
         {
-            CommandReloadColors = ReactiveCommand.Create<object>(Execute);
+            CommandClearInfo = ReactiveCommand.Create<object>(FunctionClearInfo);
             CreateHandStrategies();
         }
 
-        public ReactiveCommand<object, Unit> CommandReloadColors { get; }
+        public ReactiveCommand<object, Unit> CommandClearInfo { get; }
 
-        public ObservableCollection<HandStrategyModel> HandStrategies { get; private set; } = new();
+        public ObservableCollection<HandStrategyModel> HandStrategies { get; } = new();
 
-        public string TestOutput { get; set; } = "Clicked Button information";
+        public string HandNameInfoCard { get; set; }
+        public string WeightInfoCard { get; set; }
+        public string StrategyInfoCard { get; set; }
+        public string ColorsInfoCard { get; set; }
 
-        private void Execute(object parameter)
+        public void SetCardInformation(HandStrategyModel model)
         {
-            TestOutput = "Button Clicked!";
+            HandNameInfoCard = "Hand: " + model.Hand;
+            WeightInfoCard = $"Weight: {float.Round(model.Weight * 100, 1)}%";
+            StrategyInfoCard = $"Strategy: \n{ string.Join("% - ", model.Strategy.Select(x => float.Round(x * 100, 1))) }%";
+            ColorsInfoCard = $"Colors: \n{ string.Join("", model.StrategyColors.Select(x => $"A{x.A}-R{x.R}-B{x.B}-G{x.G}\n")) }";
+        }
+
+        private void FunctionClearInfo(object parameter)
+        {
+            HandNameInfoCard = string.Empty;
+            WeightInfoCard = string.Empty;
+            StrategyInfoCard = string.Empty;
+            ColorsInfoCard = string.Empty;
         }
 
         private void CreateHandStrategies()

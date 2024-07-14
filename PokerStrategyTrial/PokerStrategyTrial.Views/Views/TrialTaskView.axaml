@@ -25,7 +25,8 @@
                                     HandName="{Binding Hand}"
                                     StrategyColors="{Binding StrategyColors}"
                                     Strategy="{Binding Strategy}"
-                                    WeightValue="{Binding Weight}"/>
+                                    WeightValue="{Binding Weight}"
+                                    Click="ButtonStrategy_OnClick"/>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
 
@@ -34,7 +35,7 @@
             </Border>
 
             <StackPanel Margin="40" Grid.Column="1">
-                <Button Width="200" Height="50" Background="#FF8B8B8B" CornerRadius="20" HorizontalAlignment="Center" Margin="0, 0, 0, 40" Command="{Binding CommandReloadColors}">
+                <Button Width="200" Height="50" Background="#FF8B8B8B" CornerRadius="20" HorizontalAlignment="Center" Margin="0, 0, 0, 40" Command="{Binding CommandClearInfo}">
                     <Button.Styles>
                         <Style Selector="Button">
                             <Setter Property="Background" Value="Transparent" />
@@ -53,14 +54,40 @@
                     <TextBlock FontSize="24" Text="Clear Info" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Button>
 
-                <Border CornerRadius="20" Background="#FF8B8B8B" HorizontalAlignment="Stretch" Height="400">
+                <Border CornerRadius="20" Background="#FF8B8B8B" HorizontalAlignment="Stretch" Height="420">
                     <StackPanel>
                         <TextBlock
+                            Margin="0, 20, 0, 0"
+                            TextAlignment="Center"
                             HorizontalAlignment="Center"
                             Foreground="Black"
-                            FontSize="30"
-                            Text="{Binding TestOutput}"
+                            FontSize="24"
+                            Text="{Binding HandNameInfoCard}"
+                            TextWrapping="Wrap" /> 
+                        <TextBlock
+                            Margin="0, 20, 0, 0"
+                            TextAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Foreground="Black"
+                            FontSize="24"
+                            Text="{Binding WeightInfoCard}"
                             TextWrapping="Wrap" />  
+                        <TextBlock
+                            Margin="0, 20, 0, 0"
+                            TextAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Foreground="Black"
+                            FontSize="24"
+                            Text="{Binding StrategyInfoCard}"
+                            TextWrapping="Wrap" /> 
+                        <TextBlock
+                            Margin="0, 20, 0, 0"
+                            TextAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Foreground="Black"
+                            FontSize="24"
+                            Text="{Binding ColorsInfoCard}"
+                            TextWrapping="Wrap" /> 
                     </StackPanel>
                 </Border>
             </StackPanel>

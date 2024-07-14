@@ -9,6 +9,7 @@ public class ButtonStrategy : Button
     private float[] strategy;
     private Color[] strategyColors;
     private float weightValue;
+    private bool showBoldFont;
     private string handName = "AA";
 
     public static readonly DirectProperty<ButtonStrategy, float[]> StrategyProperty =
@@ -35,9 +36,15 @@ public class ButtonStrategy : Button
             o => o.StrategyColors,
             (o, v) => o.StrategyColors = v);
 
-    public ButtonStrategy()
+    public static readonly DirectProperty<ButtonStrategy, bool> ShowBoldFontProperty =
+        AvaloniaProperty.RegisterDirect<ButtonStrategy, bool>(
+            nameof(ShowBoldFont),
+            o => o.ShowBoldFont,
+            (o, v) => o.ShowBoldFont = v);
+
+    static ButtonStrategy()
     {
-        
+        HandNameProperty.Changed.AddClassHandler<ButtonStrategy>((sender, e) => HandNamePropertyChanged(sender, e));
     }
 
     public float[] Strategy
@@ -62,5 +69,22 @@ public class ButtonStrategy : Button
     {
         get => strategyColors;
         set => SetAndRaise(StrategyColorsProperty, ref strategyColors, value);
+    }
+
+    public bool ShowBoldFont
+    {
+        get => showBoldFont;
+        set => SetAndRaise(ShowBoldFontProperty, ref showBoldFont, value);
+    }
+
+    private static void HandNamePropertyChanged(ButtonStrategy sender, AvaloniaPropertyChangedEventArgs e)
+    {
+        if (e.Property.Name != nameof(HandName))
+            return;
+
+        if (sender.HandName is { Length: > 1 } && sender.HandName[0] == sender.HandName[1])
+        {
+            sender.ShowBoldFont = true;
+        }
     }
 }
