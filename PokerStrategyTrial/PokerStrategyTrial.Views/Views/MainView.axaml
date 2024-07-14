@@ -14,8 +14,7 @@
     
     <Viewbox>
         <Grid>
-            <ContentControl x:Name="InitialView"/>
-            <ContentControl x:Name="StrategyView"/>
+            <ContentControl x:Name="ContentView"/>
         </Grid>
     </Viewbox>
 </UserControl>

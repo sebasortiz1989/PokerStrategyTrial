@@ -31,9 +31,4 @@ public partial class StrategyView : UserControl
 
         _viewModel?.SetCardInformation(vm);
     }
-
-    private void InputElement_OnTapped(object? sender, TappedEventArgs e)
-    {
-        ShowViewAction?.Invoke(ViewsEnum.InitialView);
-    }
 }
