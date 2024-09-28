@@ -2,8 +2,8 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using MicrophoneApp.ViewModel.Container;
 using PokerStrategyTrial.ViewModels.ComponentModels;
+using PokerStrategyTrial.ViewModels.Container;
 using PokerStrategyTrial.ViewModels.ViewModels;
 using PokerStrategyTrial.Views.Components;
 
@@ -30,5 +30,10 @@ public partial class StrategyView : UserControl
             return;
 
         _viewModel?.SetCardInformation(vm);
+    }
+
+    private void BackButton_OnTapped(object? sender, TappedEventArgs e)
+    {
+        ShowViewAction?.Invoke(ViewsEnum.InitialView);
     }
 }

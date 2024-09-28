@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PokerStrategyTrial.ViewModels.ViewModels;
 
-namespace MicrophoneApp.ViewModel.Container;
+namespace PokerStrategyTrial.ViewModels.Container;
 
 public class ViewModelProvider
 {

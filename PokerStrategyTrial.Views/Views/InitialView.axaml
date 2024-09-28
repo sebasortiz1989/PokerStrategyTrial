@@ -1,0 +1,83 @@
+﻿<UserControl
+    x:Class="PokerStrategyTrial.Views.Views.InitialView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:components="clr-namespace:PokerStrategyTrial.Views.Components"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="1080"
+    d:DesignWidth="1920"
+    mc:Ignorable="d"
+    Background="Black">
+
+    <Viewbox>
+        <Grid Width="1920" Height="1080">
+            <StackPanel VerticalAlignment="Center">
+                <Button
+                    Width="350"
+                    Height="80"
+                    Margin="5"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="#FF8B8B8B"
+                    CornerRadius="20"
+                    Tapped="InputElement_OnTapped">
+                    <Button.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                            <Setter Property="Background" Value="DarkGray" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                        <Style Selector="Button:pressed /template/ ContentPresenter">
+                            <Setter Property="Background" Value="#FFEAE3E1" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                    </Button.Styles>
+
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        Foreground="Black"
+                        Text="Go To Strategy View" />
+                </Button>
+
+                <Button
+                    Width="350"
+                    Height="80"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="#FF8B8B8B"
+                    CornerRadius="20"
+                    Margin="5"
+                    Tapped="InputElement_OnTapped">
+                    <Button.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                            <Setter Property="Background" Value="DarkGray" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                        <Style Selector="Button:pressed /template/ ContentPresenter">
+                            <Setter Property="Background" Value="#FFEAE3E1" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                    </Button.Styles>
+
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        Foreground="Black"
+                        Text="Tour View" />
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </Viewbox>
+</UserControl>
