@@ -10,6 +10,7 @@ public partial class MainView : UserControl
         InitializeComponent();
         ((InitialView)ViewProvider.Instance.GetView(typeof(InitialView))!).ShowViewAction += ShowScreenActionFunction;
         ((StrategyView)ViewProvider.Instance.GetView(typeof(StrategyView))!).ShowViewAction += ShowScreenActionFunction;
+        ((TourView)ViewProvider.Instance.GetView(typeof(TourView))!).ShowViewAction += ShowScreenActionFunction;
         ShowScreenActionFunction(ViewsEnum.InitialView);
     }
     
@@ -22,6 +23,9 @@ public partial class MainView : UserControl
                 break;
             case ViewsEnum.StrategyScreen:
                 ContentView.Content = ViewProvider.Instance.GetView(typeof(StrategyView));
+                break;
+            case ViewsEnum.TourView:
+                ContentView.Content = ViewProvider.Instance.GetView(typeof(TourView));
                 break;
         }
     }

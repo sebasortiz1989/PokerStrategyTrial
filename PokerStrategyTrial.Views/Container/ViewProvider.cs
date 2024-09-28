@@ -35,5 +35,6 @@ public sealed class ViewProvider
         services.AddSingleton<MainView, MainView>();
         services.AddSingleton<StrategyView, StrategyView>();
         services.AddSingleton<InitialView, InitialView>();
+        services.AddSingleton<TourView, TourView>();
     }
 }
