@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using PokerStrategyTrial.Views.Views;
+using PokerStrategyTrial.Views.Windows;
 
 namespace PokerStrategyTrial.Views.Container;
 

@@ -22,7 +22,7 @@ public partial class TourPopup : UserControl
         InitializeComponent();
     }
 
-    public TourPopupViewModel ViewModel { get; private set; }
+    public TourPopupViewModel ViewModel { get; }
 
     private static MainView? GetMainViewInstance()
     {

@@ -28,7 +28,7 @@
                         </CombinedGeometry.Geometry1>
                         <CombinedGeometry.Geometry2>
                             <RectangleGeometry Rect="{Binding HoleRectangle}"/>
-                            <!-- <RectangleGeometry Rect="90, 305, 1810, 220"/> -->
+                            <!-- <RectangleGeometry Rect="90, 540, 910, 490"/> -->
                         </CombinedGeometry.Geometry2>
                     </CombinedGeometry>
                 </Border.Clip>

@@ -8,13 +8,24 @@ public class TourPopupViewModel : ViewModelBase
     private double _selectorWidth;
     private double _selectorHeight;
 
-    public void SetPopupValues(string page, string popupTitle, string popupContent, Thickness popupPositionMargin, int nextPopupIndex)
+    public void SetPopupProperties(
+        string page,
+        string popupTitle,
+        string popupContent,
+        Thickness popupPositionMargin,
+        int nextPopupIndex,
+        Thickness selectorPosition,
+        double selectorWidth,
+        double selectorHeight)
     {
         PopupPageNumber = page;
         PopupTitle = popupTitle;
         PopupContent = popupContent;
         PopupPosition = popupPositionMargin;
         NextPopupIndex = nextPopupIndex;
+        SelectorPosition = selectorPosition;
+        SelectorWidth = selectorWidth;
+        SelectorHeight = selectorHeight;
     }
 
     public string PopupTitle { get; set; } = string.Empty;
