@@ -10,8 +10,48 @@
     <Viewbox>
         <Grid
             Width="1920"
-            Height="1080"
-            Background="#B2000000">
+            Height="1080">
+         
+            <Image
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                Source="../../Assets/TournamentScreen.png" />
+
+            <Border
+                Background="#B2000000"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Border.Clip>
+                    <CombinedGeometry GeometryCombineMode="Exclude">
+                        <CombinedGeometry.Geometry1>
+                            <RectangleGeometry Rect="0, 0, 1920, 1080"/>
+                        </CombinedGeometry.Geometry1>
+                        <CombinedGeometry.Geometry2>
+                            <RectangleGeometry Rect="{Binding HoleRectangle}"/>
+                            <!-- <RectangleGeometry Rect="90, 305, 1810, 220"/> -->
+                        </CombinedGeometry.Geometry2>
+                    </CombinedGeometry>
+                </Border.Clip>
+                <Border
+                    x:Name="BorderSelector"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderThickness="2"
+                    BorderBrush="#FF007BEF"
+                    Margin="{Binding SelectorPosition}"
+                    Background="Transparent"
+                    Width="{Binding SelectorWidth}"
+                    Height="{Binding SelectorHeight}">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="10"
+                            OffsetX="0"
+                            OffsetY="0"
+                            Opacity="1" />
+                    </Border.Effect>
+                </Border>
+            </Border>
+
             <Border
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"

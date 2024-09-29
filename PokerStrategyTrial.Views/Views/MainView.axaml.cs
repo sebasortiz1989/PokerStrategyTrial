@@ -59,8 +59,11 @@ public partial class MainView : UserControl
                 PopupPageNumber = "1 of 3",
                 PopupTitle = "Popup Title 1",
                 PopupContent = "Popup Content 1",
-                PopupPosition = new Thickness(300, 300, 0, 0),
+                PopupPosition = new Thickness(490, 550, 0, 0),
                 NextPopupIndex = 1,
+                SelectorPosition = new Thickness(1000, 550),
+                SelectorWidth = 900,
+                SelectorHeight = 480,
             }
         });
 
@@ -71,8 +74,11 @@ public partial class MainView : UserControl
                 PopupPageNumber = "2 of 3",
                 PopupTitle = "Popup Title 2",
                 PopupContent = "Popup Content 2",
-                PopupPosition = new Thickness(600, 500, 0, 0),
+                PopupPosition = new Thickness(90, 535, 0, 0),
                 NextPopupIndex = 2,
+                SelectorPosition = new Thickness(90, 305),
+                SelectorWidth = 1815,
+                SelectorHeight = 220,
             }
         });
 
@@ -83,7 +89,10 @@ public partial class MainView : UserControl
                 PopupPageNumber = "3 of 3",
                 PopupTitle = "Popup Title 3",
                 PopupContent = "Popup Content 3",
-                PopupPosition = new Thickness(1000, 700, 0, 0),
+                PopupPosition = new Thickness(90, 535, 0, 0),
+                SelectorPosition = new Thickness(90, 305),
+                SelectorWidth = 1815,
+                SelectorHeight = 220,
             }
         });
     }
