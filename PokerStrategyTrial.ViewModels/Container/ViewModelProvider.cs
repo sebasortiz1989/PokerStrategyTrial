@@ -32,5 +32,6 @@ public class ViewModelProvider
     {
         services.AddSingleton<MainViewModel, MainViewModel>();
         services.AddSingleton<StrategyViewModel, StrategyViewModel>();
+        services.AddTransient<TourPopupViewModel, TourPopupViewModel>();
     }
 }

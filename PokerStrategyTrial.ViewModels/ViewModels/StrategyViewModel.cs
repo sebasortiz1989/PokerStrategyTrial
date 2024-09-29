@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Reactive;
-using System.Text;
 using Avalonia.Media;
 using PokerStrategyTrial.ViewModels.ComponentModels;
 using ReactiveUI;
