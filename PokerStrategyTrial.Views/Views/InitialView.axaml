@@ -76,6 +76,38 @@
                         Foreground="Black"
                         Text="Tour View" />
                 </Button>
+
+                <Button
+                    Width="350"
+                    Height="80"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="#FF8B8B8B"
+                    CornerRadius="20"
+                    Margin="5"
+                    Tapped="SoundsViewButton_OnTapped">
+                    <Button.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                            <Setter Property="Background" Value="DarkGray" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                        <Style Selector="Button:pressed /template/ ContentPresenter">
+                            <Setter Property="Background" Value="#FFEAE3E1" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Style>
+                    </Button.Styles>
+
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        Foreground="Black"
+                        Text="Sounds" />
+                </Button>
             </StackPanel>
 
         </Grid>

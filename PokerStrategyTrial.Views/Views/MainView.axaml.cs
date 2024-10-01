@@ -14,7 +14,7 @@ public partial class MainView : UserControl
         ((InitialView)ViewProvider.Instance.GetView(typeof(InitialView))!).ShowViewAction += ShowScreenActionFunction;
         ((StrategyView)ViewProvider.Instance.GetView(typeof(StrategyView))!).ShowViewAction += ShowScreenActionFunction;
         ((TourView)ViewProvider.Instance.GetView(typeof(TourView))!).ShowViewAction += ShowScreenActionFunction;
-        ((TourView)ViewProvider.Instance.GetView(typeof(TourView))!).ShowPopupAction += ShowPopupActionFunction;
+        ((SoundView)ViewProvider.Instance.GetView(typeof(SoundView))!).ShowViewAction += ShowScreenActionFunction;
         ShowScreenActionFunction(ViewsEnum.InitialView);
         PopulateTourPopups();
     }
@@ -41,6 +41,9 @@ public partial class MainView : UserControl
                 break;
             case ViewsEnum.TourView:
                 ContentView.Content = ViewProvider.Instance.GetView(typeof(TourView));
+                break;
+            case ViewsEnum.SoundView:
+                ContentView.Content = ViewProvider.Instance.GetView(typeof(SoundView));
                 break;
         }
     }

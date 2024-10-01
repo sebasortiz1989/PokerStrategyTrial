@@ -18,8 +18,6 @@ public partial class TourView : UserControl
 
     public Action<ViewsEnum>? ShowViewAction { get; set; }
 
-    public Action<TourPopup?> ShowPopupAction { get; set; }
-
     private void BackButton_OnTapped(object? sender, TappedEventArgs e)
     {
         ShowViewAction?.Invoke(ViewsEnum.InitialView);

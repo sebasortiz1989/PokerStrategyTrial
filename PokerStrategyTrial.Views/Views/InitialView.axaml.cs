@@ -22,4 +22,9 @@ public partial class InitialView : UserControl
     {
         ShowViewAction?.Invoke(ViewsEnum.TourView);
     }
+
+    private void SoundsViewButton_OnTapped(object? sender, TappedEventArgs e)
+    {
+        ShowViewAction?.Invoke(ViewsEnum.SoundView);
+    }
 }

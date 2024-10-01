@@ -5,4 +5,5 @@ public enum ViewsEnum
     InitialView,
     StrategyScreen,
     TourView,
+    SoundView,
 }
