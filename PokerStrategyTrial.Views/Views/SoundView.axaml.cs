@@ -1,15 +1,22 @@
 ﻿using System;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
-using Avalonia.Markup.Xaml;
+using Avalonia.Interactivity;
+using PokerStrategyTrial.ViewModels.Container;
+using PokerStrategyTrial.ViewModels.ViewModels;
 
 namespace PokerStrategyTrial.Views.Views;
 
 public partial class SoundView : UserControl
 {
+    private readonly SoundViewModel _viewModel;
+
     public SoundView()
     {
+        DataContext = ViewModelProvider.Instance.GetViewModel(typeof(SoundViewModel));
+        if (DataContext is SoundViewModel testViewModel)
+            _viewModel = testViewModel;
+
         InitializeComponent();
     }
 
@@ -18,5 +25,17 @@ public partial class SoundView : UserControl
     private void BackButton_OnTapped(object? sender, TappedEventArgs e)
     {
         ShowViewAction?.Invoke(ViewsEnum.InitialView);
+    }
+
+    private void Button1_OnClick(object? sender, RoutedEventArgs e)
+    {
+        if (_viewModel.MediaPlayer.IsPlaying)
+        {
+            _viewModel.Stop();
+        }
+        else
+        {
+            _viewModel.Play();
+        }
     }
 }

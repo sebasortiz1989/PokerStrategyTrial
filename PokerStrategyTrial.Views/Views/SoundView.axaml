@@ -41,7 +41,7 @@
             </Button>
 
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button CornerRadius="10" FontSize="22" Width="140" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10" Foreground="Black" Background="#FF8B8B8B">Sound 1</Button>
+                <Button Click="Button1_OnClick" CornerRadius="10" FontSize="22" Width="140" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10" Foreground="Black" Background="#FF8B8B8B">Sound 1</Button>
                 <Button CornerRadius="10" FontSize="22" Width="140" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10" Foreground="Black" Background="#FF8B8B8B">Sound 2</Button>
                 <Button CornerRadius="10" FontSize="22" Width="140" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10" Foreground="Black" Background="#FF8B8B8B">Sound 3</Button>
                 <Button CornerRadius="10" FontSize="22" Width="140" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10" Foreground="Black" Background="#FF8B8B8B">Sound 4</Button>

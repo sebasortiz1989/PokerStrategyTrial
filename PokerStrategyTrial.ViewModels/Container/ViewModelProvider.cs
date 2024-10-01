@@ -30,8 +30,9 @@ public class ViewModelProvider
     
     private void RegisterViewModels()
     {
+        services.AddTransient<TourPopupViewModel, TourPopupViewModel>();
         services.AddSingleton<MainViewModel, MainViewModel>();
         services.AddSingleton<StrategyViewModel, StrategyViewModel>();
-        services.AddTransient<TourPopupViewModel, TourPopupViewModel>();
+        services.AddSingleton<SoundViewModel, SoundViewModel>();
     }
 }
