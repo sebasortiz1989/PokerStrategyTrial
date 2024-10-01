@@ -1,4 +1,5 @@
 ﻿using LibVLCSharp.Shared;
+using PokerStrategyTrial.Services.Resources;
 
 namespace PokerStrategyTrial.Services.Services;
 
@@ -12,11 +13,19 @@ public class SoundManagerService : ISoundManagerService
     {
         _mediaPlayer = new MediaPlayer(_libVlc);
     }
-    
-    public void Play(string soundName)
+
+    public void PlayFromUriPath(string soundUrl)
     {
         Stop();
-        // _currentMedia = new Media()
+        _currentMedia = new Media(_libVlc, new Uri(soundUrl));
+        _mediaPlayer.Play(_currentMedia);
+    }
+
+    public void PlayFromPath(string soundPath)
+    {
+        Stop();
+        _currentMedia = new Media(_libVlc, soundPath);
+        _mediaPlayer.Play(_currentMedia);
     }
 
     public void Pause()
@@ -40,11 +49,14 @@ public class SoundManagerService : ISoundManagerService
 
     public void SetVolume(int volume)
     {
-        throw new NotImplementedException();
+        _mediaPlayer.Volume = Math.Clamp(volume, 0, 100);
     }
+
+    public bool IsPlaying() => _mediaPlayer.IsPlaying;
 
     public void Dispose()
     {
-        // TODO release managed resources here
+        _mediaPlayer.Dispose();
+        _currentMedia?.Dispose();
     }
 }

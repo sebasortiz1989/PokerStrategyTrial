@@ -2,8 +2,10 @@
 
 public interface ISoundManagerService : IDisposable
 {
-    void Play(string soundName);
+    void PlayFromUriPath(string soundName);
+    void PlayFromPath(string soundPath);
     void Pause();
     void Stop();
     void SetVolume(int volume);
+    bool IsPlaying();
 }

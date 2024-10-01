@@ -10,6 +10,7 @@ namespace PokerStrategyTrial.Views.Views;
 public partial class SoundView : UserControl
 {
     private readonly SoundViewModel _viewModel;
+    private bool playingSound;
 
     public SoundView()
     {
@@ -29,13 +30,13 @@ public partial class SoundView : UserControl
 
     private void Button1_OnClick(object? sender, RoutedEventArgs e)
     {
-        if (_viewModel.MediaPlayer.IsPlaying)
+        if (_viewModel.SoundManagerService.IsPlaying())
         {
-            _viewModel.Stop();
+            _viewModel.SoundManagerService.Stop();
         }
         else
         {
-            _viewModel.Play();
+            _viewModel.SoundManagerService.PlayFromUriPath("https://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/music/menu.ogg");
         }
     }
 }

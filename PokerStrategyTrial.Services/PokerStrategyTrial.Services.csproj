@@ -12,4 +12,24 @@
         <PackageReference Condition="$([MSBuild]::IsOsPlatform('OSX'))" Include="VideoLAN.LibVLC.Mac" Version="3.1.3.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Sounds.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Sounds.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\Sounds.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Sounds.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\playingcards.mp3" />
+      <AvaloniaResource Include="Resources\playingcards.mp3" />
+    </ItemGroup>
+
 </Project>

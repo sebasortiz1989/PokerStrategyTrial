@@ -1,33 +1,18 @@
-﻿using System.Reflection;
-using LibVLCSharp.Shared;
+﻿using PokerStrategyTrial.Services.Services;
 
 namespace PokerStrategyTrial.ViewModels.ViewModels;
 
-public class SoundViewModel : ViewModelBase, IDisposable
+public class SoundViewModel : ViewModelBase
 {
-    private readonly LibVLC _libVlc = new LibVLC();
-
-    public SoundViewModel()
+    public SoundViewModel(ISoundManagerService soundManagerService)
     {
-        MediaPlayer = new MediaPlayer(_libVlc);
+        SoundManagerService = soundManagerService;
     }
 
-    public MediaPlayer MediaPlayer { get; }
+    public ISoundManagerService SoundManagerService { get; }
 
-    public void Play()
-    {
-        // using var media = new Media(_libVlc, SoundResource.pokerchips1);
-        // MediaPlayer.Play(media);
-    }
-        
-    public void Stop()
-    {            
-        MediaPlayer.Stop();
-    }
-   
     public void Dispose()
     {
-        MediaPlayer?.Dispose();
-        _libVlc?.Dispose();
+        SoundManagerService?.Dispose();
     }
 }
