@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using PokerStrategyTrial.Services.Services;
 using PokerStrategyTrial.ViewModels.ViewModels;
 
 namespace PokerStrategyTrial.ViewModels.Container;
@@ -11,6 +12,7 @@ public class ViewModelProvider
 
     public ViewModelProvider()
     {
+        RegisterServices();
         RegisterViewModels();
         serviceProvider = services.BuildServiceProvider();
     }
@@ -30,7 +32,14 @@ public class ViewModelProvider
     
     private void RegisterViewModels()
     {
+        services.AddTransient<TourPopupViewModel, TourPopupViewModel>();
         services.AddSingleton<MainViewModel, MainViewModel>();
         services.AddSingleton<StrategyViewModel, StrategyViewModel>();
+        services.AddSingleton<SoundViewModel, SoundViewModel>();
+    }
+
+    private void RegisterServices()
+    {
+        services.AddSingleton<ISoundManagerService, SoundManagerService>();
     }
 }

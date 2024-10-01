@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokerStrategyTrial.Browser"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokerStrategyTrial.ViewModels", "PokerStrategyTrial.ViewModels\PokerStrategyTrial.ViewModels.csproj", "{6B7C3D1F-AB03-4815-9EDB-CC8CA9C0F9F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokerStrategyTrial.Services", "PokerStrategyTrial.Services\PokerStrategyTrial.Services.csproj", "{A2727887-0554-4517-BD3E-BEA85E9804DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,5 +48,9 @@ Global
 		{6B7C3D1F-AB03-4815-9EDB-CC8CA9C0F9F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B7C3D1F-AB03-4815-9EDB-CC8CA9C0F9F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B7C3D1F-AB03-4815-9EDB-CC8CA9C0F9F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2727887-0554-4517-BD3E-BEA85E9804DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2727887-0554-4517-BD3E-BEA85E9804DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2727887-0554-4517-BD3E-BEA85E9804DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2727887-0554-4517-BD3E-BEA85E9804DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

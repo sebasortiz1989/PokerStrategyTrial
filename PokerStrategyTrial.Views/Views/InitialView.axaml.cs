@@ -13,8 +13,18 @@ public partial class InitialView : UserControl
 
     public event Action<ViewsEnum>? ShowViewAction;
 
-    private void InputElement_OnTapped(object? sender, TappedEventArgs e)
+    private void StrategyViewButton_OnTapped(object? sender, TappedEventArgs e)
     {
         ShowViewAction?.Invoke(ViewsEnum.StrategyScreen);
+    }
+
+    private void TourViewButton_OnTapped(object? sender, TappedEventArgs e)
+    {
+        ShowViewAction?.Invoke(ViewsEnum.TourView);
+    }
+
+    private void SoundsViewButton_OnTapped(object? sender, TappedEventArgs e)
+    {
+        ShowViewAction?.Invoke(ViewsEnum.SoundView);
     }
 }

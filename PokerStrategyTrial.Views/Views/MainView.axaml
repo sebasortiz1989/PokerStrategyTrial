@@ -15,6 +15,7 @@
     <Viewbox>
         <Grid>
             <ContentControl x:Name="ContentView"/>
+            <ContentControl x:Name="PopupView"/>
         </Grid>
     </Viewbox>
 </UserControl>

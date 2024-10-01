@@ -7,6 +7,5 @@
                  <FluentTheme />
                  <StyleInclude Source="/Components/ButtonLink.axaml" />
                  <StyleInclude Source="/Components/ButtonStrategy.axaml" />
-                 <StyleInclude Source="/Components/NormalButton.axaml" />
              </Application.Styles>
 </Application>

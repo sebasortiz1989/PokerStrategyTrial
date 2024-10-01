@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using PokerStrategyTrial.Views.Views;
+using PokerStrategyTrial.Views.Windows;
 
 namespace PokerStrategyTrial.Views.Container;
 
@@ -35,5 +36,7 @@ public sealed class ViewProvider
         services.AddSingleton<MainView, MainView>();
         services.AddSingleton<StrategyView, StrategyView>();
         services.AddSingleton<InitialView, InitialView>();
+        services.AddSingleton<TourView, TourView>();
+        services.AddSingleton<SoundView, SoundView>();
     }
 }
