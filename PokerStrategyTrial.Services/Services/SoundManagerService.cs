@@ -1,5 +1,4 @@
 ﻿using LibVLCSharp.Shared;
-using PokerStrategyTrial.Services.Resources;
 
 namespace PokerStrategyTrial.Services.Services;
 
@@ -8,6 +7,7 @@ public class SoundManagerService : ISoundManagerService
     private readonly LibVLC _libVlc = new();
     private readonly MediaPlayer _mediaPlayer;
     private Media? _currentMedia;
+    private Dictionary<string, Media> _mediaDictionary = new();
 
     public SoundManagerService()
     {
@@ -26,6 +26,20 @@ public class SoundManagerService : ISoundManagerService
         Stop();
         _currentMedia = new Media(_libVlc, soundPath);
         _mediaPlayer.Play(_currentMedia);
+    }
+
+    public void PlayFromSoundDictionary(string soundKey)
+    {
+        Stop();
+        if (_mediaDictionary.TryGetValue(soundKey, out _currentMedia))
+        {
+            _mediaPlayer.Play(_currentMedia);
+        }
+    }
+
+    public bool TryAddMediaToSoundDictionary(string soundKey, string mediaPath)
+    {
+        return _mediaDictionary.TryAdd(soundKey, new Media(_libVlc, mediaPath));
     }
 
     public void Pause()

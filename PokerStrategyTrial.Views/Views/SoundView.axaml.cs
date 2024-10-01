@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using LibVLCSharp.Shared;
 using PokerStrategyTrial.ViewModels.Container;
 using PokerStrategyTrial.ViewModels.ViewModels;
 
@@ -9,7 +10,7 @@ namespace PokerStrategyTrial.Views.Views;
 
 public partial class SoundView : UserControl
 {
-    private readonly SoundViewModel _viewModel;
+    private readonly SoundViewModel? _viewModel;
     private bool playingSound;
 
     public SoundView()
@@ -18,6 +19,7 @@ public partial class SoundView : UserControl
         if (DataContext is SoundViewModel testViewModel)
             _viewModel = testViewModel;
 
+        _viewModel?.SoundManagerService.TryAddMediaToSoundDictionary("playingCards", );
         InitializeComponent();
     }
 
