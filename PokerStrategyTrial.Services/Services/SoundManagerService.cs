@@ -6,40 +6,52 @@ public class SoundManagerService : ISoundManagerService
 {
     private readonly LibVLC _libVlc = new();
     private readonly MediaPlayer _mediaPlayer;
+    private readonly Dictionary<string, Media> _mediaDictionary = new();
     private Media? _currentMedia;
-    private Dictionary<string, Media> _mediaDictionary = new();
 
     public SoundManagerService()
     {
         _mediaPlayer = new MediaPlayer(_libVlc);
     }
 
-    public void PlayFromUriPath(string soundUrl)
+    public void Play(string soundKey)
     {
         Stop();
-        _currentMedia = new Media(_libVlc, new Uri(soundUrl));
+        if (!_mediaDictionary.TryGetValue(soundKey, out _currentMedia))
+            return;
+
         _mediaPlayer.Play(_currentMedia);
     }
 
-    public void PlayFromPath(string soundPath)
+    public async Task<bool> TryAddMediaToSoundDictionary(string soundKey, byte[] sound, SoundExtension extension)
     {
-        Stop();
-        _currentMedia = new Media(_libVlc, soundPath);
-        _mediaPlayer.Play(_currentMedia);
-    }
+        if (sound == null)
+            return false;
 
-    public void PlayFromSoundDictionary(string soundKey)
-    {
-        Stop();
-        if (_mediaDictionary.TryGetValue(soundKey, out _currentMedia))
+        string tempFilePath = Path.Combine(Path.GetTempPath(), soundKey + "." + Enum.GetName(extension));
+        if (!File.Exists(tempFilePath))
         {
-            _mediaPlayer.Play(_currentMedia);
+            await File.WriteAllBytesAsync(tempFilePath, sound);
         }
+
+        var media = new Media(_libVlc, new Uri(tempFilePath));
+        return _mediaDictionary.TryAdd(soundKey, media);
     }
 
-    public bool TryAddMediaToSoundDictionary(string soundKey, string mediaPath)
+    public async Task<bool> TryAddMediaToSoundDictionary(string soundKey, UnmanagedMemoryStream soundStream, SoundExtension extension)
     {
-        return _mediaDictionary.TryAdd(soundKey, new Media(_libVlc, mediaPath));
+        long length = soundStream.Length;
+        byte[] sound = new byte[length];
+        _ = soundStream.Read(sound, 0, (int)length);
+
+        string tempFilePath = Path.Combine(Path.GetTempPath(), soundKey + "." + Enum.GetName(extension));
+        if (!File.Exists(tempFilePath))
+        {
+            await File.WriteAllBytesAsync(tempFilePath, sound);
+        }
+
+        var media = new Media(_libVlc, new Uri(tempFilePath));
+        return _mediaDictionary.TryAdd(soundKey, media);
     }
 
     public void Pause()
@@ -57,7 +69,6 @@ public class SoundManagerService : ISoundManagerService
             _mediaPlayer.Stop();
         }
 
-        _currentMedia?.Dispose();
         _currentMedia = null;
     }
 

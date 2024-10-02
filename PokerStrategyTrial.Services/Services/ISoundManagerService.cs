@@ -4,10 +4,9 @@ namespace PokerStrategyTrial.Services.Services;
 
 public interface ISoundManagerService : IDisposable
 {
-    void PlayFromUriPath(string soundName);
-    void PlayFromPath(string soundPath);
-    void PlayFromSoundDictionary(string soundKey);
-    bool TryAddMediaToSoundDictionary(string soundKey, string mediaPath);
+    void Play(string soundKey);
+    Task<bool> TryAddMediaToSoundDictionary(string soundKey, byte[] sound, SoundExtension extension);
+    Task<bool> TryAddMediaToSoundDictionary(string soundKey, UnmanagedMemoryStream soundStream, SoundExtension extension);
     void Pause();
     void Stop();
     void SetVolume(int volume);
