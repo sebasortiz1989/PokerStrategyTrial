@@ -29,7 +29,6 @@
 
     <ItemGroup>
       <None Remove="Resources\playingcards.mp3" />
-      <AvaloniaResource Include="Resources\playingcards.mp3" />
     </ItemGroup>
 
 </Project>
