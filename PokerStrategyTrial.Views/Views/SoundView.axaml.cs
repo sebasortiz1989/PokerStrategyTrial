@@ -2,11 +2,8 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using LibVLCSharp.Shared;
-using PokerStrategyTrial.Services;
 using PokerStrategyTrial.ViewModels.Container;
 using PokerStrategyTrial.ViewModels.ViewModels;
-using PokerStrategyTrial.Views.Assets;
 
 namespace PokerStrategyTrial.Views.Views;
 
@@ -34,10 +31,10 @@ public partial class SoundView : UserControl
 
     private void AddAllSounds()
     {
-        _viewModel.SoundManagerService.TryAddMediaToSoundDictionary("playingCards", SoundResource.playingcards, extension: SoundExtension.mp3);
-        _viewModel.SoundManagerService.TryAddMediaToSoundDictionary("music", SoundResource.music, extension: SoundExtension.mp3);
-        _viewModel.SoundManagerService.TryAddMediaToSoundDictionary("pokerchips", SoundResource.pokerchips, extension: SoundExtension.wav);
-        _viewModel.SoundManagerService.TryAddMediaToSoundDictionary("shufflecards", SoundResource.shufflecards, extension: SoundExtension.wav);
+        _viewModel.SoundManagerService.TryAddMediaToSoundDictionary("playingCards", new Uri("avares://PokerStrategyTrial.Views/Assets/playingcards.mp3"));
+        _viewModel.SoundManagerService.TryAddMediaToSoundDictionary("music", new Uri("avares://PokerStrategyTrial.Views/Assets/music.mp3"));
+        _viewModel.SoundManagerService.TryAddMediaToSoundDictionary("pokerchips", new Uri("avares://PokerStrategyTrial.Views/Assets/pokerchips.wav"));
+        _viewModel.SoundManagerService.TryAddMediaToSoundDictionary("shufflecards", new Uri("avares://PokerStrategyTrial.Views/Assets/shufflecards.wav"));
     }
 
     private void Button1_OnClick(object? sender, RoutedEventArgs e)

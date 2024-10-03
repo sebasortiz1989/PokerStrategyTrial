@@ -1,4 +1,5 @@
-﻿using LibVLCSharp.Shared;
+﻿using Avalonia.Platform;
+using LibVLCSharp.Shared;
 
 namespace PokerStrategyTrial.Services.Services;
 
@@ -23,33 +24,17 @@ public class SoundManagerService : ISoundManagerService
         _mediaPlayer.Play(_currentMedia);
     }
 
-    public async Task<bool> TryAddMediaToSoundDictionary(string soundKey, byte[] sound, SoundExtension extension)
+    public async Task<bool> TryAddMediaToSoundDictionary(string soundKey, Uri soundUri)
     {
-        if (sound == null)
+        if (!AssetLoader.Exists(soundUri))
+        {
             return false;
-
-        string tempFilePath = Path.Combine(Path.GetTempPath(), soundKey + "." + Enum.GetName(extension));
-        if (!File.Exists(tempFilePath))
-        {
-            await File.WriteAllBytesAsync(tempFilePath, sound);
         }
 
-        var media = new Media(_libVlc, new Uri(tempFilePath));
-        return _mediaDictionary.TryAdd(soundKey, media);
-    }
-
-    public async Task<bool> TryAddMediaToSoundDictionary(string soundKey, UnmanagedMemoryStream soundStream, SoundExtension extension)
-    {
-        string tempFilePath = Path.Combine(Path.GetTempPath(), soundKey + "." + Enum.GetName(extension));
-        if (!File.Exists(tempFilePath))
-        {
-            long length = soundStream.Length;
-            byte[] sound = new byte[length];
-            _ = soundStream.Read(sound, 0, (int)length);
-            await File.WriteAllBytesAsync(tempFilePath, sound);
-        }
-
-        var media = new Media(_libVlc, new Uri(tempFilePath));
+        var asset = AssetLoader.Open(soundUri);
+        var ms = new MemoryStream();
+        await asset.CopyToAsync(ms);
+        var media = new Media(_libVlc, new StreamMediaInput(ms));
         return _mediaDictionary.TryAdd(soundKey, media);
     }
 
