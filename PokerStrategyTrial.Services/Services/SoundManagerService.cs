@@ -40,13 +40,12 @@ public class SoundManagerService : ISoundManagerService
 
     public async Task<bool> TryAddMediaToSoundDictionary(string soundKey, UnmanagedMemoryStream soundStream, SoundExtension extension)
     {
-        long length = soundStream.Length;
-        byte[] sound = new byte[length];
-        _ = soundStream.Read(sound, 0, (int)length);
-
         string tempFilePath = Path.Combine(Path.GetTempPath(), soundKey + "." + Enum.GetName(extension));
         if (!File.Exists(tempFilePath))
         {
+            long length = soundStream.Length;
+            byte[] sound = new byte[length];
+            _ = soundStream.Read(sound, 0, (int)length);
             await File.WriteAllBytesAsync(tempFilePath, sound);
         }
 
